@@ -22,7 +22,7 @@ public class Vehiculo {
 
     public void desplazar(Double cantKms) {
         Double combustibleNecesario = (1 / this.tipoConduccion.consumo()) * cantKms;
-        double kilometrosPosibles = this.combustible / (1 / this.tipoConduccion.consumo());
+        double kilometrosPosibles = this.combustible * this.tipoConduccion.consumo();
         this.kilomentros += Double.min(cantKms, kilometrosPosibles);
         this.combustible = Double.max(0.0, this.combustible - combustibleNecesario);
 
