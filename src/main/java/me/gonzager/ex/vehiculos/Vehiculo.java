@@ -5,11 +5,15 @@ import me.gonzager.ex.tiposconduccion.TipoConduccion;
 
 public class Vehiculo {
     private Double combustible;
-    private Double kilomentros = 0.0;
+    private Double kilometros = 0.0;
     private TipoConduccion tipoConduccion = new Ecologica();
 
-    public Vehiculo(double combustible) {
-        this.combustible = combustible;
+    public Vehiculo(Double combustible) {
+        if (combustible < 0) {
+            throw new RuntimeException("La cantidad de combustible no puede ser negativa.");
+        } else {
+            this.combustible = combustible;
+        }
     }
 
     public void avanzarTipoConduccion() {
@@ -22,8 +26,8 @@ public class Vehiculo {
 
     public void desplazar(Double cantKms) {
         Double combustibleNecesario = (1 / this.tipoConduccion.consumo()) * cantKms;
-        double kilometrosPosibles = this.combustible * this.tipoConduccion.consumo();
-        this.kilomentros += Double.min(cantKms, kilometrosPosibles);
+        Double kilometrosPosibles = this.combustible * this.tipoConduccion.consumo();
+        this.kilometros += Double.min(cantKms, kilometrosPosibles);
         this.combustible = Double.max(0.0, this.combustible - combustibleNecesario);
 
         if (cantKms > kilometrosPosibles)
@@ -31,12 +35,12 @@ public class Vehiculo {
                     + " del total de " + cantKms + " kilometros.");
     }
 
-    public double getCombustible() {
+    public Double getCombustible() {
         return combustible;
     }
 
-    public double getKilomentros() {
-        return kilomentros;
+    public Double getKilomentros() {
+        return kilometros;
     }
 
     public Double velodadMaxima() {
