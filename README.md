@@ -52,7 +52,7 @@ La simulación a modelar es **desplazar** indicandole una cantidad de kilómetro
 - Sumar los kilómetros recorridos al kilometraje total.
 - Si el combustible no es suficiente para recorrer la distancia solicitada, el vehículo se desplazará hasta donde le alcance el combustible, actualizará sus atributos correspondientes (combustible y kilometraje) e informará con un error que no pudo completar el recorrido solicitado con el siguiente mensaje: "Combustible insuficiente, solo pude recorrer X del total de Y kilometros.";
 
-Para lanzar un exc~~~~epción de manera simple y no chequeda pueden hacer
+Para lanzar un excepción de manera simple y no chequeda pueden hacer
 
 ```
     throw new RuntimeException("Combustible insuficiente ...")
