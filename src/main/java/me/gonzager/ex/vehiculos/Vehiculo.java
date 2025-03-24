@@ -11,9 +11,8 @@ public class Vehiculo {
     public Vehiculo(Double combustible) {
         if (combustible < 0) {
             throw new RuntimeException("La cantidad de combustible no puede ser negativa.");
-        } else {
-            this.combustible = combustible;
         }
+        this.combustible = combustible;
     }
 
     public void avanzarTipoConduccion() {

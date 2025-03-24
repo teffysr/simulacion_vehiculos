@@ -56,7 +56,7 @@ public class VehiculoTest {
         assertThrows(
                 RuntimeException.class,
                 () -> {
-                    var vehiculo = new Vehiculo(-10.0);
+                    new Vehiculo(-10.0);
                 },
                 "La cantidad de combustible no puede ser negativa.");
     }
@@ -66,11 +66,11 @@ public class VehiculoTest {
 
         var vehiculo = new Vehiculo(10.0);
 
-        var velocidadEcologica  = vehiculo.velodadMaxima();
+        var velocidadEcologica = vehiculo.velodadMaxima();
         vehiculo.avanzarTipoConduccion(); // avanza a estandar
-        var velocidadEstandar  = vehiculo.velodadMaxima();
-        vehiculo.avanzarTipoConduccion(); //avanza a deportiva
-        var velocidadDeportiva  = vehiculo.velodadMaxima();
+        var velocidadEstandar = vehiculo.velodadMaxima();
+        vehiculo.avanzarTipoConduccion(); // avanza a deportiva
+        var velocidadDeportiva = vehiculo.velodadMaxima();
 
         assertTrue(velocidadEcologica < velocidadEstandar);
         assertFalse(velocidadEstandar > velocidadDeportiva);
